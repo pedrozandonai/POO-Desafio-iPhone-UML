@@ -1,0 +1,38 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class Iphone {
+  + Iphone(): 
+  + selecionarMusica(String): void
+  + iniciarCorreioVoz(): void
+  + ligar(int): void
+  + atender(): void
+  + tocar(): void
+  + pausar(): void
+  + exibirPagina(String): void
+  + adicionarNovaAba(String): void
+  + atualizarPagina(): void
+}
+interface NavegadorWeb << interface >> {
+  + exibirPagina(String): void
+  + atualizarPagina(): void
+  + adicionarNovaAba(String): void
+}
+interface ReprodutorMusical << interface >> {
+  + selecionarMusica(String): void
+  + pausar(): void
+  + tocar(): void
+}
+interface Telefone << interface >> {
+  + atender(): void
+  + ligar(int): void
+  + iniciarCorreioVoz(): void
+}
+
+Iphone             -[#008200,dashed]-^  NavegadorWeb      
+Iphone             -[#008200,dashed]-^  ReprodutorMusical 
+Iphone             -[#008200,dashed]-^  Telefone          
+@enduml
